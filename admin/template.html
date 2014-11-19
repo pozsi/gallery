@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+
+
+  <style>
+
+div
+{
+	margin:0;
+	padding:0;
+	border: 1px solid yellow;
+}
+
+div.wrap
+{
+	width:1068px;
+	height:800px;
+}
+
+div.adtop
+{
+	border: 1px solid red;
+	height:160px;
+}
+
+div.imagewrap
+{
+}
+
+div.image
+{
+	width:900px;
+	height:600px;
+	background-color: blue;
+	float:left;
+
+}
+
+div.left
+{
+	width:80px;
+	height:600px;
+	border: 1px solid black;
+	float:left;
+}
+
+div.right
+{
+	width:80px;
+	height:600px;
+	border: 1px solid black;
+	float:left;
+}
+
+
+div.adbottom
+{
+	height:160px;
+	border: 1px solid red;
+}
+
+div.text
+{
+	height:80px;
+	clear:both;
+}
+
+</style>
+
+ </head>
+ <body>
+  
+
+<div class="wrap">
+
+<div class="adtop">
+top
+</div>
+
+<div class="imagewrap">
+
+<div class="left">
+<?php if ($i > 1) { ?>
+    <a href="<?= $i - 1 ?>.html">elzo</a><br />
+<?php } ?>
+</div>
+
+<div class="image">
+    <img src="<?= $item[1] ?>?w=900" />
+
+</div>
+
+<div class="right">
+<?php if ($i < count($items)) { ?>
+    <a href="<?= $i + 1 ?>.html">kovetkezo</a>
+<?php } ?>
+</div>
+
+</div>
+
+
+<div class="text">
+<?= $item[2] ?>
+</div>
+
+<div class="adbottom">
+bottom
+</div>
+
+
+</div>
+
+
+ </body>
+</html>
