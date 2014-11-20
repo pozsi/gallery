@@ -25,7 +25,8 @@ class Controller {
     }
 
     private function form(array $params) {
-        echo $this->view->render("form.php", $params);
+        $existingGalleries = $this->service->getExistingGalleries();
+        echo $this->view->render("form.php", array("galleries" => $existingGalleries));
     }
 
     private function save(array $params) {
