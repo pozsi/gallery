@@ -38,7 +38,7 @@ class Controller {
     private function edit(array $params) {
         $rawGalleryData = $this->service->loadGallery($params['name']);
         $existingGalleries = $this->service->getExistingGalleries();
-        $this->view->render("form.php", array(
+        echo $this->view->render("form.php", array(
             "current" => $params['name'],
             "name" => $rawGalleryData->name,
             "data" => $rawGalleryData->data,
