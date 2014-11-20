@@ -33,6 +33,10 @@
     }
 ?>
 
+        <form action="?op=genall" method="POST">
+            <input type="submit" value="Mindet újra" />
+        </form>
+
     </body>
 
 </html>

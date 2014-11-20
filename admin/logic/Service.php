@@ -19,6 +19,7 @@ class Service {
     public function saveRawGalleryData($name, $data) {
         $rawGalleryData = new RawGalleryData($name, $data);
         $this->repository->save($rawGalleryData);
+        return $rawGalleryData;
     }
 
     public function parseRawGalleryData($name, $data) {
@@ -31,20 +32,21 @@ class Service {
         return new GalleryData($name, $result);
     }
 
-    public function createPublicGallery($name, $data) {
-        $this->repository->createPublicGallery($name);
-        $galleryData = $this->parseRawGalleryData($name, $data);
+    public function createPublicGallery(RawGalleryData $rawGalleryData) {
+        $this->repository->createPublicGallery($rawGalleryData->name);
+        $galleryData = $this->parseRawGalleryData($rawGalleryData->name, $rawGalleryData->data);
         $this->saveGallery($galleryData);
+        return $galleryData;
     }
 
-    public function saveGallery(GalleryData $galleryData) {
+    private function saveGallery(GalleryData $galleryData) {
         $count = count($galleryData->images);
         for ($i = 0, $index = 1; $i < $count; $i++, $index++) {
             $this->saveImage($galleryData->name, $index, $count, $galleryData->images[$i]);
         }
     }
 
-    public function saveImage($name, $index, $count, Image $image) {
+    private function saveImage($name, $index, $count, Image $image) {
         $imagePage = $this->view->render("template.html", array(
             'galleryName' => $name,
             'image' => $image,

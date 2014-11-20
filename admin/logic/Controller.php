@@ -20,6 +20,9 @@ class Controller {
             case "save":
                 $this->save($params);
                 break;
+            case "genall":
+                $this->generateAllGalleries();
+                break;
             default: $this->form(array());
         }
     }
@@ -30,9 +33,9 @@ class Controller {
     }
 
     private function save(array $params) {
-        $this->service->saveRawGalleryData($params['name'], $params['data']);
-        $this->service->createPublicGallery($params['name'], $params['data']);
-        Header('Location: ' . $this->config->adminUrl . '?op=edit&name='.$params['name']);
+        $rawGalleryData  = $this->service->saveRawGalleryData($params['name'], $params['data']);
+        $galleryData = $this->service->createPublicGallery($rawGalleryData);
+        Header('Location: ' . $this->config->adminUrl . '?op=edit&name='.$galleryData->name);
         exit;
     }
 
@@ -44,6 +47,15 @@ class Controller {
             "name" => $rawGalleryData->name,
             "data" => $rawGalleryData->data,
             "galleries" => $existingGalleries));
+    }
+
+    private function generateAllGalleries() {
+        $existingGalleries = $this->service->getExistingGalleries();
+        foreach($existingGalleries as $gallery) {
+            $rawGalleryData = $this->service->loadGallery($gallery);
+            $this->service->createPublicGallery($rawGalleryData);
+        }
+        Header('Location: ' . $this->config->adminUrl);
     }
 
 }
