@@ -11,7 +11,7 @@ class LiveConfig extends Config {
         $this->adminPath = $this->appPath . 'admin/';
         $this->adminUrl = $this->appUrl . 'admin/';
         $this->galleryDataPath = $this->adminPath . "galleries/";
-        $this->templatePath = $this->adminPath . 'templates/';
+        $this->templatePath = $this->adminPath . 'view/';
     }
 
 }
