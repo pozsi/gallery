@@ -88,7 +88,7 @@ top
 
 <div class="left">
 <?php if ($index > 1) { ?>
-    <a href="<?= $index == 2 ? 'index' : $index ?>.html">elzo</a><br />
+    <a href="<?= $index == 2 ? '' : $index . '.html' ?>">előző</a><br />
 <?php } ?>
 </div>
 
@@ -99,7 +99,7 @@ top
 
 <div class="right">
 <?php if ($hasMore) { ?>
-    <a href="<?= $index + 1 ?>.html">kovetkezo</a>
+    <a href="<?= $index + 1 ?>.html">következő</a>
 <?php } ?>
 </div>
 
