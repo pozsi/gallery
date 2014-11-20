@@ -31,7 +31,7 @@ class Controller {
     private function save(array $params) {
         $this->service->saveRawGalleryData($params['name'], $params['data']);
         $this->service->createPublicGallery($params['name'], $params['data']);
-        Header('Location: ' . $this->config->adminPath . '?op=edit&name='.$params['name']);
+        Header('Location: ' . $this->config->adminUrl . '?op=edit&name='.$params['name']);
         exit;
     }
 
