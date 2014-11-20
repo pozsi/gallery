@@ -40,16 +40,16 @@ class Service {
     public function saveGallery(GalleryData $galleryData) {
         $count = count($galleryData->images);
         for ($i = 0, $index = 1; $i < $count; $i++, $index++) {
-            $this->saveImage($galleryData->name, $index, $index < $count, $galleryData->images[$i]);
+            $this->saveImage($galleryData->name, $index, $count, $galleryData->images[$i]);
         }
     }
 
-    public function saveImage($name, $index, $hasMore, Image $image) {
+    public function saveImage($name, $index, $count, Image $image) {
         $imagePage = $this->view->render("template.html", array(
             'galleryName' => $name,
             'image' => $image,
             'index' => $index,
-            'hasMore' => $hasMore
+            'count' => $count
         ));
         $fileName = ($index == 1) ? "index" : $index;
         $this->repository->savePublicImagePage($name, $fileName, $imagePage);

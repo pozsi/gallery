@@ -1,122 +1,136 @@
 <!doctype html>
 <html lang="en">
- <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-  <meta name="Generator" content="EditPlus®">
-  <meta name="Author" content="">
-  <meta name="Keywords" content="">
-  <meta name="Description" content="">
-  <title>Document</title>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta name="Generator" content="EditPlus®">
+    <meta name="Author" content="">
+    <meta name="Keywords" content="">
+    <meta name="Description" content="">
+    <title>Document</title>
 
 
-  <style>
+    <style>
 
-div
-{
-	margin:0;
-	padding:0;
-	border: 1px solid yellow;
-}
+        * {
+            color: #727272;
+            font-family: arial;
+            font-size: 16px;
+        }
 
-div.wrap
-{
-	width:1068px;
-	height:800px;
-}
+        body {
+            background-color: #5d5d5d;
+        }
 
-div.adtop
-{
-	border: 1px solid red;
-	height:160px;
-}
+        a {
+            margin: 0;
+            padding: 0;
+        }
 
-div.imagewrap
-{
-}
+        div {
+            margin: 0;
+            padding: 0;
+            border: 0px solid yellow;
+            background-color: #5d5d5d;
+        }
 
-div.image
-{
-	width:900px;
-	height:600px;
-	background-color: blue;
-	float:left;
+        div.wrap {
+            width: 1060px;
+            height: 800px;
+            margin: 0 auto;
+        }
 
-}
+        div.adtop {
+            border: 0px solid red;
+            height: 110px;
+            text-align: center;
+        }
 
-div.left
-{
-	width:80px;
-	height:600px;
-	border: 1px solid black;
-	float:left;
-}
+        div.adbottom {
+            height: 110px;
+            border: 0px solid red;
+            text-align: center;
+        }
 
-div.right
-{
-	width:80px;
-	height:600px;
-	border: 1px solid black;
-	float:left;
-}
+        div.imagewrap {
+        }
 
+        div.image {
+            width: 900px;
+            height: 600px;
+            background-color: black;
+            float: left;
 
-div.adbottom
-{
-	height:160px;
-	border: 1px solid red;
-}
+        }
 
-div.text
-{
-	height:80px;
-	clear:both;
-}
+        img {
+            position: relative;
+            top: 50%;
+            left: 50%;
+            transform: translateY(-50%) translateX(-50%);
 
-</style>
+        }
 
- </head>
- <body>
-  
+        a.left {
+            display: block;
+            width: 80px;
+            height: 600px;
+            float: left;
+            background-color: #3d3d3d;
+        }
+
+        a.right {
+            display: block;
+            width: 80px;
+            height: 600px;
+            border: 0px solid black;
+            float: left;
+            background-color: #3d3d3d;
+        }
+
+        div.text {
+            height: 50px;
+            clear: both;
+            text-align: center;
+            background-color: #2d2d2d;
+            padding: 14px;
+        }
+
+    </style>
+
+</head>
+<body>
+
 
 <div class="wrap">
 
-<div class="adtop">
-top
-</div>
+    <div class="adtop">
+        top
+    </div>
 
-<div class="imagewrap">
+    <div class="imagewrap">
 
-<div class="left">
-<?php if ($index > 1) { ?>
-    <a href="<?= $this->config->appUrl . $galleryName . '/' ?><?= $index == 2 ? '' : ($index - 1). '.html' ?>">előző</a><br />
-<?php } ?>
-</div>
+        <a class="left" href="<?= $this->config->appUrl . $galleryName . '/' ?><?= $index == 1 ? ($count . '.html') : ($index == 2 ? '' : ($index - 1) . '.html') ?>"></a>
 
-<div class="image">
-    <img src="<?= $image->url ?>?w=900" />
+        <div class="image">
+            <img src="<?= $image->url ?>?w=800"/>
+        </div>
 
-</div>
+        <a class="right" href="<?= $this->config->appUrl . $galleryName . '/' ?><?= $index == $count ? '' : ($index + 1) . '.html' ?>"></a>
 
-<div class="right">
-<?php if ($hasMore) { ?>
-    <a href="<?= $this->config->appUrl . $galleryName . '/' ?><?= $index + 1 ?>.html">következő</a>
-<?php } ?>
-</div>
-
-</div>
+    </div>
 
 
-<div class="text">
+    <div class="text">
 <?= $image->description ?>
+    </div>
+
+    <div class="adbottom">
+        bottom
+    </div>
+
+
 </div>
 
-<div class="adbottom">
-bottom
-</div>
 
-
-</div>
-
-
- </body>
+</body>
 </html>
