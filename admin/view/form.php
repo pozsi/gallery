@@ -26,7 +26,8 @@
     if (isset($galleries)) {
         foreach($galleries as $gallery) {
 ?>
-        <a href="<?php $this->config->adminUrl ?>?op=edit&name=<?= $gallery ?>"><?= $gallery ?></a><br/>
+        <a href="<?php $this->config->appUrl ?><?= $gallery ?>"><?= $gallery ?></a>&nbsp;
+        <a href="<?php $this->config->adminUrl ?>?op=edit&name=<?= $gallery ?>">Edit</a><br/>
 <?php
         }
     }
