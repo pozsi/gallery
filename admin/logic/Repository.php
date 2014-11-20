@@ -34,7 +34,7 @@ class Repository {
         return $galleries;
     }
 
-    public function loadGallery($name) {
+    public function loadRawGallery($name) {
         return file_get_contents($this->config->galleryDataPath . $name . '.txt');
     }
 }

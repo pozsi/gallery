@@ -1,5 +1,9 @@
 <?php
 
+require_once('../model/RawGalleryData.php');
+require_once('../model/GalleryData.php');
+require_once('../model/Image.php');
+
 class Service {
 
     private $config;
@@ -17,21 +21,25 @@ class Service {
         $this->repository->save($rawGalleryData);
     }
 
-    public function parseRawGalleryData($data) {
+    public function parseRawGalleryData($name, $data) {
         $items = explode("\n", $data);
         $result = array();
         foreach ($items as $item) {
             $item = explode(" ", $item, 3);
             $result[] = new Image($item[0], $item[1], $item[2]);
         }
-        return $result;
+        return new GalleryData($name, $result);
     }
 
     public function createPublicGallery($name, $data) {
         $this->repository->createPublicGallery($name);
-        $images = $this->parseRawGalleryData($data);
-        for($i = 0; $i < count($images); $i++) {
-            $this->saveImage($name, $i + 1, $images[$i]);
+        $galleryData = $this->parseRawGalleryData($name, $data);
+        $this->saveGallery($galleryData);
+    }
+
+    public function saveGallery(GalleryData $galleryData) {
+        for ($i = 0; $i < count($galleryData->images); $i++) {
+            $this->saveImage($galleryData->name, $i + 1, $galleryData->images[$i]);
         }
     }
 
@@ -46,7 +54,7 @@ class Service {
     }
 
     public function loadGallery($name) {
-        $data = $this->repository->loadGallery($name);
+        $data = $this->repository->loadRawGallery($name);
         return new RawGalleryData($name, $data);
     }
 
