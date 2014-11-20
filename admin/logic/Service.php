@@ -12,7 +12,7 @@ class Service {
         $this->view = $view;
     }
 
-    public function saveRawGalleryData($name, array $data) {
+    public function saveRawGalleryData($name, $data) {
         $rawGalleryData = new RawGalleryData($name, $data);
         $this->repository->save($rawGalleryData);
     }
