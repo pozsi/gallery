@@ -87,8 +87,8 @@ top
 <div class="imagewrap">
 
 <div class="left">
-<?php if ($i > 1) { ?>
-    <a href="<?= $i - 1 ?>.html">elzo</a><br />
+<?php if ($index > 1) { ?>
+    <a href="<?= $index - 1 ?>.html">elzo</a><br />
 <?php } ?>
 </div>
 
@@ -98,8 +98,8 @@ top
 </div>
 
 <div class="right">
-<?php if ($i < count($items)) { ?>
-    <a href="<?= $i + 1 ?>.html">kovetkezo</a>
+<?php if ($hasMore) { ?>
+    <a href="<?= $index + 1 ?>.html">kovetkezo</a>
 <?php } ?>
 </div>
 

@@ -38,13 +38,18 @@ class Service {
     }
 
     public function saveGallery(GalleryData $galleryData) {
-        for ($i = 0; $i < count($galleryData->images); $i++) {
-            $this->saveImage($galleryData->name, $i + 1, $galleryData->images[$i]);
+        $count = count($galleryData->images);
+        for ($i = 0, $index = 1; $i < $count; $i++, $index++) {
+            $this->saveImage($galleryData->name, $index, $index < $count, $galleryData->images[$i]);
         }
     }
 
-    public function saveImage($name, $index, Image $image) {
-        $imagePage = $this->view->render("template.html", array('image' => $image, 'index' => $index));
+    public function saveImage($name, $index, $hasMore, Image $image) {
+        $imagePage = $this->view->render("template.html", array(
+            'image' => $image,
+            'index' => $index,
+            'hasMore' => $hasMore
+        ));
         $fileName = ($index == 1) ? "index" : $index;
         $this->repository->savePublicImagePage($name, $fileName, $imagePage);
     }
