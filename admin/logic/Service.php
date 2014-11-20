@@ -46,6 +46,7 @@ class Service {
 
     public function saveImage($name, $index, $hasMore, Image $image) {
         $imagePage = $this->view->render("template.html", array(
+            'galleryName' => $name,
             'image' => $image,
             'index' => $index,
             'hasMore' => $hasMore
