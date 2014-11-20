@@ -11,7 +11,7 @@
             <label for="gallery_name">Név: </label>
             <input id="gallery_name" type="text" name="name" value="<?= isset($name) ? $name : '' ?>" /><br />
             <label for="gallery_data">Adat: </label>
-            <textarea id="gallery_data" name="data" rows="30" style="width: 100%">
+            <textarea id="gallery_data" name="data" rows="30" style="width: 100%; margin-right: 8px;">
 <?= isset($data) ? $data : '' ?>
             </textarea><br />
             <input type="submit" value="Mehet">
