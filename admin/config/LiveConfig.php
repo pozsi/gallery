@@ -8,6 +8,7 @@ class LiveConfig extends Config {
 
     function __construct() {
         $this->adminPath = $this->appPath . 'admin/';
+        $this->galleryDataPath = $this->adminPath . "galleries/";
         $this->templatePath = $this->adminPath . 'templates/';
     }
 

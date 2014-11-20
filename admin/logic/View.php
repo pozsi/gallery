@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by IntelliJ IDEA.
- * User: pozsi
- * Date: 11/19/14
- * Time: 11:18 PM
- */
 
 class View {
 
@@ -15,9 +9,12 @@ class View {
     }
 
     function render($template, $params) {
+        ob_start();
         foreach ($params as $key => $value) {
             $$key = $value;
         }
         include($this->config->templatePath.$template);
+        return ob_get_clean();
     }
+
 } 

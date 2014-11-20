@@ -35,7 +35,7 @@ Elkeszult: <a href="http://pozsi.com/gallery/<?= $_POST["name"] ?>" target="_bla
 		    $name = $parts[0];
 ?>
     <a href="?gal=<?= $name ?>"><?= $name ?></a><br />
-<?php    
+<?php
 		}
 	    }
 	    closedir($handle);
