@@ -18,7 +18,7 @@
         </form>
 
 <?php if (isset($current)) { ?>
-        Publikus: <a href="<?= $this->config->publicGalleryHomeUrl ?><?= $current ?>/" target="_blank"><?= $current ?></a><br/>
+        Publikus: <a href="<?= $this->config->appUrl ?><?= $current ?>/" target="_blank"><?= $current ?></a><br/>
 <?php } ?>
 
         Galériák:<br />
@@ -26,7 +26,7 @@
     if (isset($galleries)) {
         foreach($galleries as $gallery) {
 ?>
-        <a href="?op=edit&gal=<?= $gallery ?>"><?= $gallery ?></a><br/>
+        <a href="<?php $this->config->adminUrl ?>?op=edit&gal=<?= $gallery ?>"><?= $gallery ?></a><br/>
 <?php
         }
     }
