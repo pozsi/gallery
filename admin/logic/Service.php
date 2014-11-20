@@ -1,8 +1,8 @@
 <?php
 
-require_once('../model/RawGalleryData.php');
-require_once('../model/GalleryData.php');
-require_once('../model/Image.php');
+require_once('model/RawGalleryData.php');
+require_once('model/GalleryData.php');
+require_once('model/Image.php');
 
 class Service {
 
