@@ -44,12 +44,8 @@ class Service {
     }
 
     public function saveImage($name, $index, Image $image) {
-        $imagePage = $this->view->render("template.html", array('image' => $image));
-        if ($index == 1) {
-            $fileName = "index";
-        } else {
-            $fileName = $index;
-        }
+        $imagePage = $this->view->render("template.html", array('image' => $image, 'index' => $index));
+        $fileName = ($index == 1) ? "index" : $index;
         $this->repository->savePublicImagePage($name, $fileName, $imagePage);
     }
 
