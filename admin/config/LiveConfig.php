@@ -4,8 +4,8 @@ require_once('Config.php');
 
 class LiveConfig extends Config {
 
-    public $appPath = '/www/pozsi.com/gallery/';
-    public $appUrl = 'http://pozsi.com/gallery/';
+    public $appPath = '/www/b4.hu/';
+    public $appUrl = 'http://b4.hu/';
 
     function __construct() {
         $this->adminPath = $this->appPath . 'admin/';
