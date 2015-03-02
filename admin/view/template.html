@@ -31,12 +31,12 @@
         <a class="left" href="<?= $this->config->appUrl . $galleryName . '/' ?><?= $index == 1 ? ($count . '.html') : ($index == 2 ? '' : ($index - 1) . '.html') ?>"></a>
 
         <div class="image">
-<?php if ($media->mediaType == "embed") { ?>
+<?php if ($media->mediaType != "embed") { ?>
             <img src="<?= $media->media ?>?w=700&h=440"/>
-<?php } else { ?>		
-            $media->media
-<?php } ?>		
-		</div>
+<?php } else { ?>
+            <?= $media->media ?>
+<?php } ?>
+        </div>
 
         <a class="right" href="<?= $this->config->appUrl . $galleryName . '/' ?><?= $index == $count ? '' : ($index + 1) . '.html' ?>"></a>
 

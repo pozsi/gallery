@@ -31,6 +31,7 @@ class Repository {
                 }
             }
         }
+        natcasesort($galleries);
         return $galleries;
     }
 

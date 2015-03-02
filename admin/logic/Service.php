@@ -33,7 +33,7 @@ class Service {
                 $separator = " ";
             }
             $item = explode($separator, $item, 3);
-            if (strpos("http", $item[1]) === 0) {
+            if (strpos($item[1], "http") === 0) {
                 $mediaType = "image";
             } else {
                 $mediaType = "embed";
