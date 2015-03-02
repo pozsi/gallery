@@ -1,10 +1,10 @@
 <?php
 
-    require_once("config/LiveConfig.php");
-    require_once("logic/Repository.php");
-    require_once("logic/View.php");
-    require_once("logic/Service.php");
-    require_once("logic/Controller.php");
+    require_once("../config/LiveConfig.php");
+    require_once("../logic/Repository.php");
+    require_once("../logic/View.php");
+    require_once("../logic/Service.php");
+    require_once("../logic/Controller.php");
 
     $config = new LiveConfig("diagonal");
     $repository = new Repository($config);
