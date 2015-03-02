@@ -33,7 +33,7 @@
     }
 ?>
 
-        <form action="?op=genall" method="POST">
+        <form action="<?= $this->config->adminUrl . $this->config->host ?>.php?op=genall" method="POST">
             <input type="submit" value="Mindet újra" />
         </form>
 
