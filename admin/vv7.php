@@ -6,7 +6,7 @@
     require_once("logic/Service.php");
     require_once("logic/Controller.php");
 
-    $host = basename(__FILE__, '.php');
+    $host = basename($_SERVER["SCRIPT_FILENAME"], '.php');
     $config = new LiveConfig($host);
     $repository = new Repository($config);
     $view = new View($config);
