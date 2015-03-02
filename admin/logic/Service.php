@@ -2,7 +2,7 @@
 
 require_once('model/RawGalleryData.php');
 require_once('model/GalleryData.php');
-require_once('model/Image.php');
+require_once('model/Media.php');
 
 class Service {
 
@@ -26,8 +26,19 @@ class Service {
         $items = explode("\n", $data);
         $result = array();
         foreach ($items as $item) {
-            $item = explode(" ", $item, 3);
-            $result[] = new Image($item[0], $item[1], $item[2]);
+            if ($item[0] == "|") {
+                $item = ltrim($item, '|');
+                $separator = "|";
+            } else {
+                $separator = " ";
+            }
+            $item = explode($separator, $item, 3);
+            if (strpos("http", $item[1]) === 0) {
+                $mediaType = "image";
+            } else {
+                $mediaType = "embed";
+            }
+            $result[] = new Media($item[0], $item[1], $item[2], $mediaType);
         }
         return new GalleryData($name, $result);
     }
@@ -40,21 +51,21 @@ class Service {
     }
 
     private function saveGallery(GalleryData $galleryData) {
-        $count = count($galleryData->images);
+        $count = count($galleryData->media);
         for ($i = 0, $index = 1; $i < $count; $i++, $index++) {
-            $this->saveImage($galleryData->name, $index, $count, $galleryData->images[$i]);
+            $this->saveMedia($galleryData->name, $index, $count, $galleryData->media[$i]);
         }
     }
 
-    private function saveImage($name, $index, $count, Image $image) {
-        $imagePage = $this->view->render("template.html", array(
+    private function saveMedia($name, $index, $count, Media $media) {
+        $mediaPage = $this->view->render("template.html", array(
             'galleryName' => $name,
-            'image' => $image,
+            'media' => $media,
             'index' => $index,
             'count' => $count
         ));
         $fileName = ($index == 1) ? "index" : $index;
-        $this->repository->savePublicImagePage($name, $fileName, $imagePage);
+        $this->repository->savePublicMediaPage($name, $fileName, $mediaPage);
     }
 
     public function loadGallery($name) {

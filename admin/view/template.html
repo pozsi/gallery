@@ -31,10 +31,10 @@
         <a class="left" href="<?= $this->config->appUrl . $galleryName . '/' ?><?= $index == 1 ? ($count . '.html') : ($index == 2 ? '' : ($index - 1) . '.html') ?>"></a>
 
         <div class="image">
-<?php if (($image->code == "000") || ($image->code == "018")) { ?>
-            <img src="<?= $image->url ?>?w=700&h=440"/>
+<?php if ($media->mediaType == "embed") { ?>
+            <img src="<?= $media->media ?>?w=700&h=440"/>
 <?php } else { ?>		
-            <img src="<?= $image->url ?>?w=340&h=440"/>
+            $media->media
 <?php } ?>		
 		</div>
 
@@ -43,7 +43,7 @@
     </div>
 
     <div class="text">
-<?= $image->description ?>
+<?= $media->description ?>
     </div>
 
     <div class="bottom">

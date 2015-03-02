@@ -16,7 +16,7 @@ class Repository {
         mkdir($this->config->appPath . $name . "/");
     }
 
-    public function savePublicImagePage($galleryName, $fileName, $content) {
+    public function savePublicMediaPage($galleryName, $fileName, $content) {
         file_put_contents($this->config->appPath . $galleryName . "/" . $fileName . ".html", $content);
     }
 

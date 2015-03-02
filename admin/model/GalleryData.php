@@ -3,11 +3,11 @@
 class GalleryData {
 
     public $name;
-    public $images;
+    public $media;
 
-    public function __construct($name, Array $images) {
+    public function __construct($name, Array $media) {
         $this->name = $name;
-        $this->images = $images;
+        $this->media = $media;
     }
 
 } 
