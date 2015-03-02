@@ -2,9 +2,9 @@
 
 abstract class Config {
 
+    public $host;
     public $appPath;
     public $appUrl;
-    public $hostDir;
     public $adminPath;
     public $adminUrl;
     public $galleryDataPath;
