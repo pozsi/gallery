@@ -38,6 +38,10 @@ class Service {
             } else {
                 $mediaType = "embed";
             }
+            if ($item[1][0] == "*") {
+                $item[0] = "018";
+                $item[1] = ltrim($item[1], "*");
+            }
             $result[] = new Media($item[0], $item[1], $item[2], $mediaType);
         }
         return new GalleryData($name, $result);
