@@ -52,7 +52,7 @@ class Controller {
     private function generateAllGalleries() {
         $existingGalleries = $this->service->getExistingGalleries();
         foreach($existingGalleries as $gallery) {
-            $rawGalleryData = $this->service->loadGallery($gallery);
+            $rawGalleryData = $this->service->loadGallery($gallery[0]);
             $this->service->createPublicGallery($rawGalleryData);
         }
         Header('Location: ' . $this->config->adminUrl . $this->config->host . ".php");

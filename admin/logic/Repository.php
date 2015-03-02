@@ -27,7 +27,8 @@ class Repository {
             while (false !== ($entry = readdir($handle))) {
                 if ($entry != "." && $entry != "..") {
                     $parts = explode(".", $entry, 2);
-                    $galleries[] = $parts[0];
+                    $mtime = date("Y-m-d H:i:s", filemtime($this->config->galleryDataPath . $entry));
+                    $galleries[] = array($parts[0], $mtime);
                 }
             }
         }

@@ -24,8 +24,9 @@
     if (isset($galleries)) {
         foreach($galleries as $gallery) {
 ?>
-        <a href="<?= $this->config->appUrl ?><?= $gallery ?>" target="_blank"><?= $gallery ?></a>&nbsp;
-        <a href="<?= $this->config->adminUrl . $this->config->host ?>.php?op=edit&name=<?= $gallery ?>">Edit</a><br/>
+        <?= $gallery[1] ?>&nbsp;
+        <a href="<?= $this->config->adminUrl . $this->config->host ?>.php?op=edit&name=<?= $gallery[0] ?>"><?= $gallery[0] ?></a>&nbsp;
+        <span style="font-size: 10px;"><a href="<?= $this->config->appUrl ?><?= $gallery[0] ?>" target="_blank">View</a></span><br />
 <?php
         }
     }
