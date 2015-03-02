@@ -1,12 +1,13 @@
 <?php
 
-    require_once("../config/LiveConfig.php");
-    require_once("../logic/Repository.php");
-    require_once("../logic/View.php");
-    require_once("../logic/Service.php");
-    require_once("../logic/Controller.php");
+    require_once("config/LiveConfig.php");
+    require_once("logic/Repository.php");
+    require_once("logic/View.php");
+    require_once("logic/Service.php");
+    require_once("logic/Controller.php");
 
-    $config = new LiveConfig("vv7");
+    $host = basename(__FILE__, '.php');
+    $config = new LiveConfig($host);
     $repository = new Repository($config);
     $view = new View($config);
     $service = new Service($config, $repository, $view);
