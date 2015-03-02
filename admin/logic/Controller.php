@@ -35,7 +35,7 @@ class Controller {
     private function save(array $params) {
         $rawGalleryData  = $this->service->saveRawGalleryData($params['name'], $params['data']);
         $galleryData = $this->service->createPublicGallery($rawGalleryData);
-        Header('Location: ' . $this->config->adminUrl . $this->host . '.php?op=edit&name='.$galleryData->name);
+        Header('Location: ' . $this->config->adminUrl . $this->config->host . '.php?op=edit&name='.$galleryData->name);
         exit;
     }
 
@@ -55,7 +55,7 @@ class Controller {
             $rawGalleryData = $this->service->loadGallery($gallery);
             $this->service->createPublicGallery($rawGalleryData);
         }
-        Header('Location: ' . $this->config->adminUrl . $this->host . ".php");
+        Header('Location: ' . $this->config->adminUrl . $this->config->host . ".php");
     }
 
 }
