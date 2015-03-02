@@ -27,7 +27,7 @@
         foreach($galleries as $gallery) {
 ?>
         <a href="<?= $this->config->appUrl ?><?= $gallery ?>" target="_blank"><?= $gallery ?></a>&nbsp;
-        <a href="<?= $this->config->adminUrl ?>?op=edit&name=<?= $gallery ?>">Edit</a><br/>
+        <a href="<?= $this->config->adminUrl . $this->config->host ?>.php?op=edit&name=<?= $gallery ?>">Edit</a><br/>
 <?php
         }
     }
