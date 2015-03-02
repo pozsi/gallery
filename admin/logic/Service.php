@@ -38,9 +38,9 @@ class Service {
             } else {
                 $mediaType = "embed";
             }
-            if ($item[1][0] == "*") {
+            if ($item[2][0] == "*") {
                 $item[0] = "018";
-                $item[1] = ltrim($item[1], "*");
+                $item[2] = ltrim($item[2], "*");
             }
             $result[] = new Media($item[0], $item[1], $item[2], $mediaType);
         }
