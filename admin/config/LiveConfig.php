@@ -10,7 +10,7 @@ class LiveConfig extends Config {
         $this->hostDir = $host . '/';
         $this->adminPath = $this->appPath . 'admin/';
         $this->adminUrl = $this->appUrl . 'admin/';
-        $this->galleryDataPath = $this->adminPath . $this->hostDir ."galleries/";
+        $this->galleryDataPath = $this->adminPath . "galleries/" . $this->hostDir;
         $this->templatePath = $this->adminPath . 'view/';
         $this->customTemplatePath = $this->adminPath . 'view/' . $this->hostDir;
     }
