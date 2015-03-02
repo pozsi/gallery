@@ -42,7 +42,9 @@ class Service {
                 $item[0] = "018";
                 $item[2] = ltrim($item[2], "*");
             }
-            $result[] = new Media($item[0], $item[1], $item[2], $mediaType);
+            if (!empty($item[1])) {
+                $result[] = new Media($item[0], $item[1], $item[2], $mediaType);
+            }
         }
         return new GalleryData($name, $result);
     }
