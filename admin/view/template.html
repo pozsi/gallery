@@ -10,117 +10,10 @@
 
 
     <style>
-
-        * {
-            color: #a2a2a2;
-            font-family: arial;
-            font-size: 16px;
-        }
-
-        body {
-            background-color: #444;
-			margin:0
-        }
-
-        a {
-            margin: 0;
-            padding: 0;
-        }
-
-        div {
-            margin: 0;
-            padding: 0;
-            border: 0px solid yellow;
-            
-        }
-
-        div.wrap {
-            width: 900px;
-            height: 700px;
-            margin: 0 auto;
-			margin-left:310px;
-        }
-
-        div.top {
-            border: 0px solid red;
-            height: 98px;
-            text-align: center;
-            padding-top: 4px;
-        }
-
-        div.bottom {
-            height: 98px;
-            border: 0px solid red;
-            text-align: center;
-            padding-top: 4px;
-        }
-
-        div.imagewrap {
-        }
-
-        div.image {
-            width: 740px;
-            height: 450px;
-            background-color: black;
-            float: left;
-
-        }
-
-        img {
-            position: relative;
-            top: 50%;
-            left: 50%;
-            transform: translateY(-50%) translateX(-50%);
-
-        }
-		div.preleft {
-			float:left;
-			width:300px;
-			position:absolute;
-			left:0px;
-			top:0px;
-		}
-        a.left {
-            display: block;
-            width: 80px;
-            height: 450px;
-            float: left;
-            background-color: #5c5c5c;
-			background:url(http://img.reblog.hu/blogs/20248/left092a.png);
-        }
-
-        a.right {
-            display: block;
-            width: 80px;
-            height: 450px;
-            border: 0px solid black;
-            float: left;
-            background-color: #5c5c5c;
-			background: url(http://img.reblog.hu/blogs/20248/rightdd21.png);
-        }
-
-        div.text {
-            height: 16px;
-            clear: both;
-            text-align: center;
-            background-color: #2d2d2d;
-            padding: 6px;
-        }
-
+<?php include($this->config->templateDir . "analitics.html") ?>
     </style>
 
-
-<script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-  ga('create', 'UA-56805732-1', 'auto');
-  ga('send', 'pageview');
-
-</script>
-
+<?php include($this->config->customTemplateDir . "analitics.html") ?>
 
 </head>
 <body>
@@ -131,17 +24,7 @@
 
 
     <div class="top">
-<?php if (($image->code != "018") && ($image->code != "118")) { ?>
-        <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-        <!-- vv7 galeria felso 728 -->
-        <ins class="adsbygoogle"
-             style="display:inline-block;width:728px;height:90px"
-             data-ad-client="ca-pub-7608414666602082"
-             data-ad-slot="2540567756"></ins>
-        <script>
-            (adsbygoogle = window.adsbygoogle || []).push({});
-        </script>
-<?php } ?>
+<?php include($this->config->customTemplateDir . "adsense_top.html") ?>
     </div>
 
     <div class="imagewrap">
@@ -164,32 +47,12 @@
     </div>
 
     <div class="bottom">
-<?php if (($image->code != "018") && ($image->code != "118")) { ?>
-        <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-        <!-- vv7 galeria also 728 -->
-        <ins class="adsbygoogle"
-             style="display:inline-block;width:728px;height:90px"
-             data-ad-client="ca-pub-7608414666602082"
-             data-ad-slot="4017300951"></ins>
-        <script>
-            (adsbygoogle = window.adsbygoogle || []).push({});
-        </script>
-<?php } ?>
+        <?php include($this->config->customTemplateDir . "adsense_bottom.html") ?>
     </div>
 
-			<div class="preleft">
-<?php if (($image->code != "018") && ($image->code != "118")) { ?>
-<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-
-<ins class="adsbygoogle"
-     style="display:inline-block;width:300px;height:600px"
-     data-ad-client="ca-pub-7608414666602082"
-     data-ad-slot="3761132156"></ins>
-<script>
-(adsbygoogle = window.adsbygoogle || []).push({});
-</script>
-<?php } ?>
-		</div>
+	<div class="preleft">
+<?php include($this->config->customTemplateDir . "adsense_left.html") ?>
+    </div>
 
 
 </div>

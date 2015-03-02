@@ -6,7 +6,7 @@
     require_once("logic/Service.php");
     require_once("logic/Controller.php");
 
-    $config = new LiveConfig();
+    $config = new LiveConfig("eden");
     $repository = new Repository($config);
     $view = new View($config);
     $service = new Service($config, $repository, $view);
