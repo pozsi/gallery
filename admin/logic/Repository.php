@@ -29,10 +29,11 @@ class Repository {
                     $parts = explode(".", $entry, 2);
                     $mtime = date("Y-m-d H:i:s", filemtime($this->config->galleryDataPath . $entry));
                     $galleries[] = array($parts[0], $mtime);
+                    $sorter[] = $parts[0];
                 }
             }
         }
-        natcasesort($galleries);
+        array_multisort($sorter, $galleries);
         return $galleries;
     }
 
