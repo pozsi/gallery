@@ -58,6 +58,7 @@ class Service {
 
     private function saveGallery(GalleryData $galleryData) {
         $count = count($galleryData->media);
+        $this->saveIndexPage($galleryData->name);
         for ($i = 0, $index = 1; $i < $count; $i++, $index++) {
             $this->saveMedia($galleryData->name, $index, $count, $galleryData->media[$i]);
         }
@@ -70,10 +71,15 @@ class Service {
             'index' => $index,
             'count' => $count
         ));
-        $fileName = ($index == 1) ? "index" : $index;
-        $this->repository->savePublicMediaPage($name, $fileName, $mediaPage);
+        $this->repository->savePublicMediaPage($name, $index, $mediaPage);
     }
 
+    private function saveIndexPage($name) {
+        $indexPage = $this->view->render("index.html", array());
+        $this->repository->savePublicIndexPage($name, $indexPage);
+        
+    }
+    
     public function loadGallery($name) {
         $data = $this->repository->loadRawGallery($name);
         return new RawGalleryData($name, $data);

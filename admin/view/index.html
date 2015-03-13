@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta name="Generator" content="EditPlus®">
+    <meta name="Author" content="">
+    <meta name="Keywords" content="">
+    <meta name="Description" content="">
+    <title>Document</title>
+
+
+    <style>
+<?php include($this->config->templatePath . "styles.css") ?>
+    </style>
+
+<?php include($this->config->customTemplatePath . "analytics.html") ?>
+
+
+	<!-- Place this tag in your head or just before your close body tag. -->
+	<script src="https://apis.google.com/js/platform.js" async defer>
+	  {lang: 'hu'}
+	</script>
+
+
+</head>
+<body>
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/hu_HU/sdk.js#xfbml=1&appId=387786564627152&version=v2.0";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+
+<div class="wrap" style="float:left;margin-right:20px">
+
+
+
+    <div class="top">
+<?php // include($this->config->customTemplatePath . "adsense_top.html") ?> 
+    </div>
+
+    <iframe style="width: 900px; height: 440px;" src="1.html"></iframe>
+
+    <div class="text" >
+<div style="position:fixed"><div class="g-plusone" data-size="medium" data-annotation="none"></div></div> 
+<div class="fb-like" data-href="https://vblog.hu" data-width="150px" data-layout="standard" data-action="recommend" data-show-faces="false" data-share="false"></div></div><?= $media->description ?> 
+    </div>
+
+    <div class="bottom">
+       <?php //include($this->config->customTemplatePath . "adsense_bottom.html") ?> 
+    </div>
+
+	<div class="preleft">
+ <?php //include($this->config->customTemplatePath . "adsense_left.html") ?>
+    </div>
+
+
+</div>
+<div class="rsstext" style="margin:0 10px;padding:90px 10px 900px;background-color:#333;position:absolute;left:1200px">
+
+<p><a href="http://hawking-nap.reblog.hu/megerkeztek-a-tancolo-origamik">Megérkeztek a táncoló origamik!</a></p>
+<p><a href="http://hawking-nap.reblog.hu/ilyet-meg-nem-latott-harkaly-taxi-menyeteknek">Ilyet még nem látott! Harkály taxi menyéteknek</a></p>
+<p><a href="http://hawking-nap.reblog.hu/megmenthetik-a-gombak-a-vilagot">Megmenthetik a gombák a világot?</a></p>
+<p><a href="http://hawking-nap.reblog.hu/igy-csapodna-a-foldbe-egy-aszteroida">Így csapódna a Földbe egy aszteroida </a></p>
+<p><a href="http://hawking-nap.reblog.hu/igy-vedlik-egy-tarantula">Így vedlik egy tarantula</a></p>
+<p><a href="http://hawking-nap.reblog.hu/a-hubble-25-evenek-legszebb-kepei">A Hubble 25 évének legszebb képei</a></p>
+<p><a href="http://hawking-nap.reblog.hu/barcsak-minden-pok-ilyen-szep-lenne">Bárcsak minden pók ilyen szép lenne!</a></p>
+<p><a href="http://hawking-nap.reblog.hu/dobbenetes-teli-kepek-az-oceanrol">Döbbenetes téli képek az óceánról</a></p>
+<p><a href="http://hawking-nap.reblog.hu/videon-a-vegzetes-poliptamadas">Videón a végzetes poliptámadás</a>
+<p><a href="http://hawking-nap.reblog.hu/a-vilag-legnagyobb-barlangja-full-extrakkal">A világ legnagyobb barlangja full extrákkal</a></p>
+
+</div>
+
+</body>
+</html>

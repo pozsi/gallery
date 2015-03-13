@@ -20,6 +20,11 @@ class Repository {
         file_put_contents($this->config->appPath . $galleryName . "/" . $fileName . ".html", $content);
     }
 
+    public function savePublicIndexPage($galleryName, $content)
+    {
+        file_put_contents($this->config->appPath . $galleryName . "/index.html", $content);
+    }
+
     public function getGalleryList()
     {
         $galleries = array();
