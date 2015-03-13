@@ -76,7 +76,14 @@ class Service {
 
     private function saveIndexPage($name) {
         $indexPage = $this->view->render("index.html", array());
-        $this->repository->savePublicIndexPage($name, $indexPage);
+        $sidebar = $this->loadLatestFeed($name)
+        $this->repository->savePublicIndexPage($name, $indexPage, $sidebar);
+    }
+    
+    private function loadLatestFeed($name) {
+        $html = $this->repository->loadBlog($name);
+        preg_match('/(<div class="widget-content latest-content">.*?)<div class="widget-footer latest-footer"></div>/', $html, $matches);
+        return $matches[0];
         
     }
     
