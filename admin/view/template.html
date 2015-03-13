@@ -17,18 +17,23 @@
 <body>
 
     <div class="imagewrap">
-        <a class="left" href="<?= $this->config->appUrl . $galleryName . '/' ?><?= $index == 1 ? ($count . '.html') : ($index == 2 ? '' : ($index - 1) . '.html') ?>"></a>
+
+        <a class="left" href="<?= $this->config->appUrl . $galleryName . '/' ?><?= $index == 1 ? ($count . '.html') : ($index - 1) . '.html' ?>"></a>
 
         <div class="image">
 <?php if ($media->mediaType != "embed") { ?>
-            <img src="<?= $media->media ?>?w=700&h=440"/>
+            <img src="<?= $media->media ?>?t=6&w=740&h=450"/>
 <?php } else { ?>
             <?= $media->media ?>
 <?php } ?>
         </div>
 
-        <a class="right" href="<?= $this->config->appUrl . $galleryName . '/' ?><?= $index == $count ? '' : ($index + 1) . '.html' ?>"></a>
+        <a class="right" href="<?= $this->config->appUrl . $galleryName . '/' ?><?= $index == $count ? '1.html' : ($index + 1) . '.html' ?>"></a>
 
+    </div>
+
+    <div class="text">
+	<?= $media->description ?>
     </div>
 
 </body>
