@@ -17,4 +17,3 @@
     $params = $_POST + $_GET;
 
     $controller->dispatch($op, $params);
-    $a = 30;

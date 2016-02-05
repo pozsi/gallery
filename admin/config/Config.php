@@ -10,5 +10,6 @@ abstract class Config {
     public $galleryDataPath;
     public $templatePath;
     public $customTemplatePath;
+    public $blogUrls;
 
 }

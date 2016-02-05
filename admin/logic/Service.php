@@ -1,8 +1,8 @@
 <?php
 
-require_once('model/RawGalleryData.php');
-require_once('model/GalleryData.php');
-require_once('model/Media.php');
+require_once('../model/RawGalleryData.php');
+require_once('../model/GalleryData.php');
+require_once('../model/Media.php');
 
 class Service {
 
@@ -77,7 +77,7 @@ class Service {
     private function saveIndexPage($name) {
         $sidebar = $this->loadLatestFeed($this->config->host);
         $indexPage = $this->view->render("index.html", array('sidebar' => $sidebar));
-        $this->repository->savePublicIndexPage($name, $indexPage, $sidebar);
+        $this->repository->savePublicIndexPage($name, $indexPage);
     }
 
     private function loadLatestFeed($host) {
@@ -98,4 +98,4 @@ class Service {
         return $this->repository->getGalleryList();
     }
 
-} 
+}
