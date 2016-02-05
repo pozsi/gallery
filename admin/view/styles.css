@@ -93,3 +93,13 @@
             background-color: #2d2d2d;
             padding: 6px;
         }
+
+		div.latest-item
+		{
+			margin-bottom:10px;
+		}
+
+		div.latest-content
+		{
+			margin-top:10px;
+		}

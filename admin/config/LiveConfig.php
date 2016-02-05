@@ -13,6 +13,11 @@ class LiveConfig extends Config {
         $this->galleryDataPath = $this->adminPath . "galleries/" . $this->host . '/';
         $this->templatePath = $this->adminPath . 'view/';
         $this->customTemplatePath = $this->adminPath . 'view/' . $this->host . '/';
+        $this->blogUrls = array(
+            "vv7" => "http://vv7.reblog.hu/",
+            "hawking" => "http://hawking-nap.reblog.hu/",
+            "eden" => "http://eden-hotel.reblog.hu/",
+            "diagonal" => "http://diagonal.reblog.hu/");
     }
 
 }

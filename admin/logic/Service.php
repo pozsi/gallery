@@ -75,18 +75,20 @@ class Service {
     }
 
     private function saveIndexPage($name) {
-        $indexPage = $this->view->render("index.html", array());
-        $sidebar = $this->loadLatestFeed($name)
+        $sidebar = $this->loadLatestFeed($this->config->host);
+        $indexPage = $this->view->render("index.html", array('sidebar' => $sidebar));
         $this->repository->savePublicIndexPage($name, $indexPage, $sidebar);
     }
-    
-    private function loadLatestFeed($name) {
-        $html = $this->repository->loadBlog($name);
-        preg_match('/(<div class="widget-content latest-content">.*?)<div class="widget-footer latest-footer"></div>/', $html, $matches);
-        return $matches[0];
-        
+
+    private function loadLatestFeed($host) {
+        $html = $this->repository->loadLatestFeed($host);
+        preg_match('/(<div class="widget-content latest-content">.*?)<div class="widget-footer latest-footer"><\/div>/s', $html, $matches);
+        $sidebar = preg_replace('/href="\/(.*?)"/', 'href="' . $this->config->blogUrls[$host] . '${1}"', $matches[1]);
+        $sidebar = preg_replace('/<div class="latest-date">(.*?)<\/div>/', '', $sidebar);
+        return $sidebar;
+
     }
-    
+
     public function loadGallery($name) {
         $data = $this->repository->loadRawGallery($name);
         return new RawGalleryData($name, $data);

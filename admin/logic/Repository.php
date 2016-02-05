@@ -45,8 +45,8 @@ class Repository {
     public function loadRawGallery($name) {
         return file_get_contents($this->config->galleryDataPath . $name . '.txt');
     }
-    
-    public function loadLatestFeed($name) {
-        return file_get_contents("http://hawking-nap.vblog.hu/");
+
+    public function loadLatestFeed($host) {
+        return file_get_contents($this->config->blogUrls[$host]);
     }
 }
